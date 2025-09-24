@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Presentación: Buena vs Mala Administración</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f8fb; --card:#ffffff; --muted:#6b7280; --accent:#0f766e; --danger:#b91c1c;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#0b1220}
+    header{background:linear-gradient(90deg,#0ea5a3 0%, #06b6d4 100%);color:white;padding:28px 24px;display:flex;align-items:center;justify-content:space-between}
+    .container{max-width:1000px;margin:28px auto;padding:0 18px}
+    h1{margin:0;font-size:20px}
+    nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600}
+    .hero{background:var(--card);border-radius:12px;padding:28px;box-shadow:0 6px 18px rgba(2,6,23,0.06);display:flex;gap:24px;align-items:center}
+    .hero .intro{flex:1}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#ecfeff,#cffafe);color:var(--accent);font-weight:700;margin-bottom:12px}
+    .subtitle{color:var(--muted);margin-top:6px}
+    .actions{display:flex;gap:10px;margin-top:12px}
+    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+    .btn.ghost{background:transparent;color:var(--accent);border:2px solid rgba(15,118,110,0.12)}
+    .layout{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:18px}
+    section.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 16px rgba(2,6,23,0.04)}
+    .flex{display:flex;gap:12px;align-items:center}
+    .kpi{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi .item{background:#f8fafc;padding:10px;border-radius:8px;min-width:130px}
+    .green{color:#065f46;font-weight:700}
+    .red{color:var(--danger);font-weight:700}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    ul{margin:6px 0 12px 18px}
+    .codebox{background:#0b1220;color:#dbeafe;padding:12px;border-radius:8px;font-family:monospace;font-size:13px}
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+    /* responsive */
+    @media (max-width:880px){.layout{grid-template-columns:1fr}.hero{flex-direction:column;align-items:flex-start}}
+    /* subtle animations */
+    .fade {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .fade.slide-in {
+    opacity: 1;
+    transform: none;
+  }
+  .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 12px;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;gap:16px">
+      <img src="logoutc.jpeg" alt="logo" style="height:42px;border-radius:8px;"/>
+      <div>
+        <h1>Presentación: Buena vs Mala Administración</h1>
+        <div style="color:rgba(255,255,255,0.9);font-size:13px">Administracion</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#buena">Buena</a>
+      <a href="#mala">Mala</a>
+      <a href="#conclusion">Conclusión</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="hero fade" style="margin-top:-40px">
+      <div class="intro">
+        <span class="badge">Presentación ejecutiva</span>
+        <h2 style="margin:4px 0 0">Resumen ejecutivo</h2>
+        <p class="subtitle">Dos casos comparativos: uno con buenas prácticas administrativas Apple.inc y otro con malas prácticas PEMEX. Enfócado en causas, efectos y soluciones.</p>
+        <div class="actions">
+          <button class="btn" onclick="document.getElementById('buena').scrollIntoView({behavior:'smooth'})">Ver ejemplo: Buena</button>
+          <button class="btn" onclick="document.getElementById('mala').scrollIntoView({behavior:'smooth'})">Ver ejemplo: Mala</button>
+          <button class="btn ghost" onclick="window.print()">Imprimir / Guardar PDF</button>
+        </div>
+      </div>
+      <div style="width:240px;text-align:right">
+        <div style="background:linear-gradient(180deg,#eefdfa,#dffaf6);padding:12px;border-radius:8px">
+          <div style="font-size:12px;color:var(--muted)">Presentador</div>
+          <div style="font-weight:700;margin-top:6px">Juan Carlos Ramirez - 1A Mercadotecnia</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:6px">Fecha: <span id="fecha"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <main>
+        <section id="buena" class="card fade">
+          <div class="section-title">
+            <h3>Buena Administración (Apple Inc.)</h3>
+            <div style="font-size:13px;color:var(--muted)">Caso: crecimiento sostenible</div>
+          </div>
+          <img src="https://marketmatters.com.au/wp-content/uploads/2020/08/apples.jpg" alt="Imagen1" class="section-img">
+          <p>Apple tiene una buena administración gracias a su enfoque en innovación constante, una gestión eficiente de su cadena de suministro y un ecosistema integrado que fomenta la lealtad del cliente. Sus prácticas clave incluyen la inversión continua en I+D, un fuerte control de costos y una estrategia de diversificación de productos y servicios. </p>
+          <h4>Prácticas clave</h4>
+          <ul>
+            <li>Ecosistema integrado: Apple une hardware, software y servicios para una experiencia fluida, logrando 90 % de retención.</li>
+            <br>
+            <li>Diversificación estratégica: Apple combina ventas de dispositivos con servicios digitales ofreciendo alto margen e ingresos recurrentes.</li>
+            <br>
+            <li>Innovación y Eficiencia Operativa: Prioriza I+D para anticipar tendencias, manteniendo un margen bruto del 46.2% mediante optimización de producción y cadena de suministro.</li>
+            <br>
+            <li>Gestión Financiera y Retorno a Inversores: Ejecuta recompras de acciones para aumentar el valor por acción y distribuye dividendos crecientes (rentabilidad del 0.44%), equilibrando reinversión en crecimiento con recompensas a accionistas </li>
+            <br>
+            <li>Branding Premium y Experiencia de Usuario: Estrategia de precios altos basada en calidad percibida y ecosistema cerrado, reforzada por marketing que enfatiza innovación y homogeneidad en la experiencia, creando barreras de entrada para competidores</li>
+          </ul>
+          <h4>Resultados</h4>
+          <div class="kpi">
+            <div class="item"><div style="font-size:12px;color:var(--muted)">Crecimiento anual</div><div class="green">+4% al 6%</div></div>
+            <div class="item"><div style="font-size:12px;color:var(--muted)">ROE Y WACC</div><div class="green">95% ROE & 11.39% WACC </div></div>
+            <div class="item"><div style="font-size:12px;color:var(--muted)">Margen neto</div><div class="green">24%</div></div>
+          </div>
+          <h4>Conclusion</h4>
+          
+            <p>Estos resultados subrayan cómo la administración de Apple no solo impulsa ganancias, sino que asegura resiliencia y expansión futura, con énfasis en innovación para contrarrestar desafíos como la saturación del mercado y tensiones geopolíticas.</p>
+        </section>
+
+        <section id="mala" class="card fade" style="margin-top:18px">
+          <div class="section-title">
+            <h3>Ejemplo - Mala Administración (Pemex®)</h3>
+            <div style="font-size:13px;color:var(--muted)">Caso: pérdida de mercado y conflictos internos</div>
+          </div>
+          <img src="https://img.europapress.es/fotoweb/fotonoticia_20210728175037_1200.jpg" alt="Imagen de mala administración" class="section-img">
+          <p> Pemex, la mayor petrolera estatal de México, arrastra décadas de mala gestión por interferencia política, corrupción e ineficiencia. Fundada en 1938, acumula pérdidas superiores a 100 mil M USD y una deuda similar, cerca del 7 % del PIB.</p>
+          <h4>Errores comunes</h4>
+          <ul>
+            <li>Falta de Transparencia y Controles Internos : Reportes financieros opacos permiten fraudes y sobreprecios en contratos</li>
+            <br>
+            <li>Priorización de Metas Políticas sobre Económicas : Inversiones en proyectos no rentables, como la refinería Dos Bocas, en lugar de exploración offshore o energías renovables.</li>
+            <br>
+            <li>Mala Gestión de Recursos y Riesgos : Dependencia excesiva de exportaciones de crudo sin procesar exponiéndose a fluctuaciones globales. Baja inversión en I+D , lo que acelera el declive de reservas probadas </li>
+            <br>
+            <li>Cultura de Ineficiencia y Resistencia al Cambio : Burocracia rígida y contratos laborales obsoletos generan costos fijos altos. Ignorar la transición energética global deja a Pemex vulnerable a regulaciones futuras.</li>
+          </ul>
+          <h4>Consecuencias</h4>
+          <div class="kpi">
+            <div class="item"><div style="font-size:12px;color:var(--muted)">Caída en ventas</div><div class="red">-17%</div></div>
+            <div class="item"><div style="font-size:12px;color:var(--muted)">Rotación</div><div class="red">25% anual</div></div>
+            <div class="item"><div style="font-size:12px;color:var(--muted)">Margen neto</div><div class="red">-8% (pérdida)</div></div>
+          </div>
+          <h4>Recomendaciones inmediatas</h4>
+          <ul>
+            <li>Invertir en Modernización y Eficiencia Operativa: Aumentar I+D al 3-5% de ingresos para exploración en aguas profundas y recuperación mejorada. Optimizar refinerías mediante alianzas con privados </li>
+            <br>
+            <li>Diversificar Fuentes de Ingresos y Reducir Dependencia del Crudo: Expandir a petroquímicos, renovables y gas natural. </li>
+            <br>
+            <li>Alianzas Estratégicas y Lecciones Globales: Acelerar contratos con privados bajo la Reforma Energética, como farm-outs en campos maduros.</li>
+          </ul>
+        </section>
+
+        <section id="conclusion" class="card fade" style="margin-top:18px">
+          <div class="section-title">
+            <h3>Conclusión</h3>
+            <div style="font-size:13px;color:var(--muted)"></div>
+          </div>
+          <img src="https://comofuncionaque.com/wp-content/uploads/2015/07/La-administracion-eficiente-de-una-empresa-ayuda-a-que-esta-prospere-y-sea-exitosa.jpg.jpg" alt="Imagen de mala administración" class="section-img">
+          <p>Apple demuestra que la innovación constante, la eficiencia operativa y la diversificación sostienen un crecimiento rentable y resiliente. En contraste, Pemex refleja cómo la interferencia política, la falta de transparencia y la resistencia al cambio derivan en pérdidas, alta deuda y pérdida de competitividad. La comparación evidencia que la gestión profesional y la inversión en modernización son claves para la estabilidad y el éxito a largo plazo.</p>
+        </section>
+      </main>
+
+      <aside>
+        <section class="card fade">
+<h4 style="margin-top:10px">Comparativa Apple vs Pemex</h4>
+<canvas id="graficaDatos" width="320" height="220"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('graficaDatos').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [
+        'Crecimiento anual', 'ROE', 'WACC', 'Margen neto', 
+        'Caída en ventas', 'Rotación', 'Margen neto Pemex'
+      ],
+      datasets: [
+        {
+          label: 'Apple',
+          data: [5, 95, 11.39, 24, 0, 0, 0],
+          backgroundColor: 'rgba(16, 185, 129, 0.7)'
+        },
+        {
+          label: 'Pemex',
+          data: [0, 0, 0, 0, -17, 25, -8],
+          backgroundColor: 'rgba(185, 28, 28, 0.7)'
+        }
+      ]
+    },
+    options: {
+      plugins: {
+        legend: { position: 'bottom' }
+      },
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+</script>
+<!-- ...existing code... -->
+        </section>
+
+        <section class="card fade" style="margin-top:12px">
+          <h4>Puntos Claves</h4>
+          <div style="display:flex;gap:24px">
+  <div>
+    <strong>Buena administración</strong>
+    <ul style="margin:6px 0 0 18px;font-size:13px;color:var(--muted)">
+      <li>Organización</li>
+      <li>Liderazgo</li>
+      <li>Comunicación</li>
+      <li>Eficiencia</li>
+      <li>Resultados</li>
+      <li>Crecimiento</li>
+    </ul>
+  </div>
+   <div>
+    <strong>Mala administración</strong>
+    <ul style="margin:6px 0 0 18px;font-size:13px;color:var(--muted)">
+      <li>Desorden</li>
+      <li>Falta de liderazgo</li>
+      <li>Conflictos</li>
+      <li>Ineficiencia</li>
+      <li>Pérdidas</li>
+      <li>Riesgos</li>
+    </ul>
+  </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      © 2025 Juan Carlos Salazar Ramirez. Todos los derechos reservados. Queda prohibida la reproducción total o parcial de este sitio web, incluyendo textos, imágenes y contenidos, sin autorización previa y por escrito.
+    </footer>
+  </main>
+
+  <script>
+    function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight - 40 && rect.bottom > 0;
+  }
+
+  function revealOnScroll() {
+  document.querySelectorAll('.fade').forEach(el => {
+    if (isInViewport(el)) {
+      el.classList.add('slide-in');
+    } else {
+      el.classList.remove('slide-in');
+    }
+  });
+}
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+    document.getElementById('fecha').textContent = new Date().toLocaleDateString('es-MX');
+
+    function downloadSummary(){
+      const text = `Resumen ejecutivo\n\nBuena administración (Alfa): KPIs positivos, planificación, capacitación.\nMala administración (Beta): falta de controles, alta rotación, caída de ventas.\n\nPlan 90 días:\n1) Diagnóstico\n2) Implementación\n3) Ajustes y medición`;
+      const blob = new Blob([text],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'resumen_presentacion.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+    function copyToClipboard(){
+      const text = `Resumen ejecutivo\n\nBuena administración (Alfa): KPIs positivos, planificación, capacitación.\nMala administración (Beta): falta de controles, alta rotación, caída de ventas.\n\nPlan 90 días:\n1) Diagnóstico\n2) Implementación\n3) Ajustes y medición`;
+      navigator.clipboard.writeText(text).then(()=>{alert('Resumen copiado al portapapeles')});
+    }
+  </script>
+</body>
+</html>
